@@ -27,10 +27,6 @@ pipeline {
                 echo 'build complete'
             }
         }
-	stage('Image Push') {
-		steps {
-			echo 'pushing image.....'
-			sh "'docker push position-simulator:${commit_id}'"
         stage('Deploy') {
             steps {
                 echo 'Deploying to Kubernetes'
@@ -45,4 +41,3 @@ pipeline {
     }
   }
  }
-}
